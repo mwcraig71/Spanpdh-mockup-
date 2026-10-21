@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lesson 1 · Element-Level Bridge Inspection · SpanPDH</title><link rel="stylesheet" href="style.css"><script src="brand.js"></script>
+<style>
+body{display:flex;flex-direction:column;min-height:100vh}
+.lp-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:58px;z-index:4}
+.lp-bar .wrap{display:flex;align-items:center;gap:10px;height:50px}
+.lp-toc-btn{background:#fff;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-weight:700;color:var(--navy);cursor:pointer;font-size:.9rem}
+.lp-title{flex:1;min-width:0;font-weight:700;color:var(--navy);font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-seat{font-size:.78rem;color:var(--muted);text-align:right;line-height:1.25}.lp-seat b{color:var(--navy);font-variant-numeric:tabular-nums}
+.lp-prog{height:5px;background:#e3e9ef}.lp-prog i{display:block;height:100%;background:var(--orange);width:0;transition:width .3s}
+.lp{flex:1;display:grid;grid-template-columns:1fr;max-width:1180px;width:100%;margin:0 auto}
+.lp-side{position:fixed;top:0;left:0;bottom:0;width:86%;max-width:330px;background:#fff;z-index:20;transform:translateX(-102%);transition:transform .25s;overflow-y:auto;box-shadow:4px 0 24px rgba(0,0,0,.2)}
+.lp-side.open{transform:none}.lp-shade{position:fixed;inset:0;background:rgba(15,42,67,.45);z-index:19;display:none}.lp-shade.open{display:block}
+.lp-side h3{padding:16px 16px 4px;margin:0;font-size:.95rem}.lp-side .sub{padding:0 16px 10px;font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.lp-side .x{float:right;background:none;border:0;font-size:1.3rem;cursor:pointer;color:var(--muted);margin:-4px -4px 0 0}
+.lp-side ol{list-style:none;margin:0;padding:6px 0}
+.lp-side li button{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;padding:9px 16px;font:inherit;font-size:.9rem;color:var(--ink);cursor:pointer;border-left:4px solid transparent}
+.lp-side li button:disabled{color:#a3afba;cursor:not-allowed}
+.lp-side li button.cur{background:#eef4f9;border-left-color:var(--orange);font-weight:700}
+.lp-side .ck{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid #b8c4cf;display:grid;place-items:center;font-size:.72rem;font-weight:800;color:#fff;margin-top:1px}
+.lp-side .done .ck{background:var(--ok);border-color:var(--ok)}
+.lp-side .quiz{margin:8px 16px 18px;display:block}
+.lp-main{padding:20px 18px 30px;min-width:0}
+.lp-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;max-width:760px}
+.lp-card h2{margin-top:.1em}.lp-card .kicker{display:block;margin-bottom:4px}
+.lp-card blockquote{margin:14px 0;background:#f2f6fa;border-left:4px solid var(--steel);padding:10px 14px;border-radius:6px}
+.lp-card table{font-size:.84rem}.lp-card th{position:static}
+.fb{color:var(--ink);font-weight:400;margin-top:10px;padding:12px 14px;border-radius:8px;font-size:.93rem;display:none}.fb.show{display:block}
+.fb.ok{background:#eaf6ef;border:1px solid #b7dcc6}.fb.no{background:#fbecea;border:1px solid #efc2bd}
+.q label input{margin-right:8px}.q .chk{margin-top:8px}
+.lp-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:760px;margin-top:16px}
+.lp-count{font-size:.88rem;color:var(--muted);font-weight:700}
+.lp-nav .btn{padding:11px 16px;min-width:96px}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.lock{font-size:.85rem;color:var(--muted);margin-top:6px}
+@media(min-width:900px){
+ .lp{grid-template-columns:300px 1fr}.lp-side{position:sticky;top:113px;height:calc(100vh - 113px);transform:none;box-shadow:none;border-right:1px solid var(--line);width:auto;max-width:none;z-index:1}
+ .lp-side .x,.lp-toc-btn,.lp-shade{display:none!important}.lp-main{padding:28px 34px}.lp-card{padding:28px 32px}}
+</style></head><body>
+<div class="ribbon">Design mockup — lesson player preview. Progress and seat time are stored in this browser only.</div>
+<header class="top"><div class="wrap"><a class="logo" href="index.html"><svg width="30" height="22" viewBox="0 0 30 22"><path d="M1 20h28M3 20V12M27 20V12M1 12h28M3 12 9 4h12l6 8M9 4l6 8 6-8M9 12V4M21 12V4" stroke="#e07a1f" stroke-width="2" fill="none"/></svg><span class="brand">SpanPDH</span></a>
+<nav><a href="niche-inspection.html" class="hide-m">Courses</a><a href="states.html" class="hide-m">State rules</a><a href="index.html#pricing">Pricing</a><a href="#" class="hide-m">Sign in</a></nav></div></header>
+<div class="lp-bar"><div class="wrap"><button class="lp-toc-btn" id="tocBtn" aria-controls="side" aria-expanded="false">☰ Screens</button>
+<div class="lp-title">BI-201 · Lesson 1: Why Element-Level Inspection Exists</div>
+<div class="lp-seat">Seat time<br><b id="seat">0:00:00</b></div></div><div class="lp-prog"><i id="prog"></i></div></div>
+<div class="lp-shade" id="shade"></div>
+<div class="lp">
+<aside class="lp-side" id="side" aria-label="Lesson screens"><button class="x" id="sideX" aria-label="Close">✕</button><h3>Lesson 1 screens</h3><div class="sub"><span id="doneCt">0</span> of <span id="totCt">0</span> complete · <a href="course-element-level.html">Course home</a></div>
+<ol id="toc"></ol><a class="btn btn-s quiz" id="quizBtn" href="quiz.html">🔒 Final quiz</a></aside>
+<main class="lp-main"><div class="lp-card" id="card"></div>
+<div class="lp-nav"><button class="btn btn-s" id="back">‹ Back</button><span class="lp-count" id="count"></span><button class="btn btn-p" id="next">Next ›</button></div>
+<div class="lock" id="lock"></div></main></div>
+<script>
+// ---------- Content: Section 1 of course BI-201 (from course_part1.md) ----------
+const S=[
+{t:"Learning objectives",h:`<span class="kicker">Lesson 1 of 6</span><h2>Why Element-Level Inspection Exists</h2><p>After this lesson you will be able to:</p><ul class="check">
+<li>Explain why a single 0–9 component rating can't tell an owner what to fix or how much of it there is.</li>
+<li>Cite the federal basis for element-level data: 23 U.S.C. 144, 23 CFR 650.315 and 650.317.</li>
+<li>State which bridges must report element data, and where the SNBI transition stands.</li>
+<li>Tell the difference between SNBI component condition ratings and element condition states.</li>
+<li>Identify National Bridge Elements, Bridge Management Elements and agency-developed elements.</li></ul>
+<p class="note">Work through each screen in order. Knowledge checks must be answered before you move on. The final quiz unlocks when every screen is complete.</p>`},
+{t:"The problem with a single number",h:`<span class="kicker">1.1</span><h2>The problem with a single number</h2><p>For most of the National Bridge Inventory's history, a bridge's condition was summarized by a handful of 0–9 ratings: deck, superstructure, substructure and, for culverts, the culvert rating.</p><p>Those ratings are good at one thing. They tell you quickly whether a component is in good, fair or poor shape, and they drive federal performance measures and inspection intervals. They are poor at telling you <em>what to fix and how much of it there is</em>.</p><p>A superstructure rated 5 might be twelve steel girders with paint failure at every bearing area. It might also be one girder with a hit bottom flange and eleven girders in good condition. The rating is the same; the repair, the cost and the risk are not.</p><blockquote>Component condition rating data "by itself is typically not comprehensive enough to support bridge preservation performance-based decision support." — BIRM Section 3.3.1</blockquote>`},
+{t:"Severity and extent",h:`<span class="kicker">1.1</span><h2>Severity tells you what. Extent tells you how much.</h2><p>Element-level inspection breaks the bridge into standard elements (a deck, a girder line, a bearing, a joint, a paint system) and reports <strong>how much</strong> of each element is in each of four condition states.</p><ul><li><strong>Severity</strong> tells you what treatment fits.</li><li><strong>Extent</strong> tells you how much it will cost.</li></ul><p>The BIRM makes the same distinction (BIRM Section 3.3.4).</p><blockquote><strong>Field example.</strong> A four-span steel multi-girder bridge had carried a superstructure 6 for years. When the owner moved to element-level data, the steel protective coating (EN 515) came out with more than a third of its area in CS3, almost all of it within a few feet of the expansion joints. The 6 never told the owner a zone-paint project at the joints was due. The element data made the scope and the cost estimate obvious.</blockquote>`},
+{t:"Knowledge check 1",kc:[
+ {q:"Two bridges both have a superstructure rating of 5. What does that tell the owner about the repair each needs?",o:["The repairs will be about the same size and cost","Very little — the same rating can hide very different repairs, quantities and risk","Both need superstructure replacement within five years","Both have the same element quantities in CS3"],a:1,e:"A single component rating summarizes overall condition but not what is wrong or how much of it there is. One girder with a hit flange and twelve girders with paint failure can both be a 5. (Section 1.1)"},
+ {q:"In element-level data, which part tells you how much a repair will cost?",o:["Severity — the condition state","Extent — the quantity in each condition state","The component rating","The element number"],a:1,e:"Severity sets the condition state and points to the right treatment; extent (the quantity in that state) drives the cost. (Section 1.1, BIRM 3.3.4)"}]},
+{t:"The federal basis",h:`<span class="kicker">1.2</span><h2>The federal basis</h2><p>Element-level reporting is not optional for NHS bridges. The chain of authority is short:</p><ul>
+<li><strong>Statute.</strong> 23 U.S.C. 144 requires element-level data for NHS bridges. Owners have reported it since April 2015.</li>
+<li><strong>Regulation.</strong> 23 CFR 650.315(a): inventory data "must include element level bridge inspection data for bridges on the NHS collected in accordance with the 'Manual for Bridge Element Inspection'," with collection and reporting specs in the SNBI.</li>
+<li><strong>Incorporation by reference.</strong> 23 CFR 650.317 incorporates the MBEI, Second Edition, 2019, and the <em>Specifications for the National Bridge Inventory</em> (FHWA-HIF-22-017, March 2022).</li>
+<li><strong>Definition.</strong> 23 CFR 650.305: "quantitative condition assessment data … that indicates the severity and extent of defects in bridge elements."</li></ul>`},
+{t:"Which bridges must report",h:`<span class="kicker">1.2</span><h2>Which bridges must report element data</h2><p>Before the SNBI, element data followed a separate 2014 FHWA document, the <em>Specification for the National Bridge Inventory Bridge Elements</em> (SNBIBE). The SNBI merged it into one specification for all bridge data reported to FHWA.</p><p>Element data is <strong>required only for bridges that carry NHS routes</strong>. Reporting for non-NHS bridges is optional (SNBI Subsections 7.2 and 7.3).</p><p>Many states collect element data on every bridge anyway, because their bridge management systems depend on it. Follow your agency's policy.</p>`},
+{t:"Where the SNBI transition stands",h:`<span class="kicker">1.3</span><h2>Where the SNBI transition stands</h2><p>The NBIS final rule took effect June 6, 2022. FHWA's implementation memorandum (May 25, 2022) set a roughly six-year transition from the 1995 Coding Guide to the SNBI.</p><div class="tbl"><table><tr><th>Target date</th><th>Action</th></tr>
+<tr><td>Mar 15, 2025</td><td>Last NBI submittal under the 1995 Coding Guide</td></tr><tr><td>Jan 1, 2026</td><td>Begin SNBI-based data collection; NBI NextGen opens</td></tr><tr><td>Mar 15, 2026</td><td>First SNBI-based submittal (transitioned/hybrid)</td></tr><tr><td>Mar 15, 2027</td><td>Second SNBI-based submittal</td></tr><tr><td>Mar 15, 2028</td><td>Third submittal: 100% populated and verified, no temporary codes</td></tr></table></div>
+<p>As of October 2026, agencies are between the first and second SNBI-based submittals. Element records use the same basic structure as the 2014 SNBIBE (element number, parent number, total quantity, four condition-state quantities), but they are now validated inside the same SNBI dataset as everything else.</p>`},
+{t:"Knowledge check 2",kc:[
+ {q:"Which regulation requires element-level inspection data for bridges on the NHS?",o:["23 CFR 650.313","23 CFR 650.315","23 CFR 650.513","23 CFR 625.4"],a:1,e:"23 CFR 650.315(a) requires element-level data for NHS bridges, collected per the MBEI and reported per the SNBI. (Section 1.2)"},
+ {q:"Under the FHWA transition schedule, when is the first submittal that must be 100% populated and verified with no temporary codes?",o:["March 15, 2025","January 1, 2026","March 15, 2027","March 15, 2028"],a:3,e:"The third SNBI-based submittal, March 15, 2028, is the first complete dataset with no temporary codes permitted. (Section 1.3)"}]},
+{t:"Two systems, one inspection",h:`<span class="kicker">1.4</span><h2>Two systems, one inspection</h2><p>SNBI Section 7 (Bridge Condition) holds both condition systems side by side:</p><ul><li><strong>7.1 Component Condition Ratings</strong> — 0–9 ratings for deck (B.C.01), superstructure (B.C.02), substructure (B.C.03), culvert (B.C.04) and more. B.C.01–B.C.07 are assigned with <strong>SNBI Table 20</strong>.</li><li><strong>7.2 Element Identification</strong> — B.E.01 Element Number, B.E.02 Parent Number, B.E.03 Total Quantity.</li><li><strong>7.3 Element Conditions</strong> — B.CS.01–B.CS.04, the quantity in Condition States 1–4.</li></ul>
+<p>Table 20 uses defined severity words: <em>inherent</em>, <em>minor</em> (deterioration started, not significant), <em>moderate</em> (significant, but no effect on strength or performance) and <em>major</em> (affects strength and/or performance, per a structural or hydraulic review). Extent is <em>isolated</em>, <em>some</em> or <em>widespread</em>.</p>`},
+{t:"Consistent, not converted",h:`<span class="kicker">1.4</span><h2>Consistent, not converted</h2><div class="tbl"><table><tr><th>Feature</th><th>Component rating (7.1)</th><th>Element condition state (7.2–7.3)</th></tr>
+<tr><td>What is rated</td><td>A whole component</td><td>Each standard element (EN 12, EN 107, EN 310…)</td></tr><tr><td>Scale</td><td>9 to 0, plus N</td><td>CS1 Good, CS2 Fair, CS3 Poor, CS4 Severe</td></tr><tr><td>Output</td><td>One code</td><td>Quantities that sum to the element total</td></tr><tr><td>Required for</td><td>All NBI bridges</td><td>NHS bridges</td></tr></table></div>
+<p>There is <strong>no formula</strong> that converts element data into a component rating, or the reverse. They should be <em>consistent</em> (a deck with half its area in CS3 and CS4 is not a 7), but you assign each on its own terms.</p><blockquote><strong>Field example.</strong> A reviewer kicks back a report: deck rating 6, but 90% of the deck in CS2, so "make it a 5 to match." The deck has widespread fine map cracking and nothing else. Under Table 20, widespread minor defects is a 6; under the element definitions, that cracking is CS2. Both are right. The team documents the reasoning and the rating stands.</blockquote>`},
+{t:"NBEs, BMEs and agency elements",h:`<span class="kicker">1.5</span><h2>NBEs, BMEs and agency-developed elements</h2><ul>
+<li><strong>National Bridge Elements (NBEs)</strong> — primary structural components: decks, slabs, superstructure, substructure, culverts, railings and bearings. Definitions are fixed nationwide.</li>
+<li><strong>Bridge Management Elements (BMEs)</strong> — joints, wearing surfaces and protective systems. AASHTO's condition language is a recommendation agencies may modify.</li>
+<li><strong>Agency-developed elements (ADEs)</strong> — custom elements for an agency's own needs, either sub-sets of NBEs/BMEs or independent items like wingwalls or sign structures.</li></ul>
+<p class="note"><strong>Two rules.</strong> Agencies cannot change the number of condition states or the intent of the condition state language (BIRM 3.3.3). And ADEs are <strong>not submitted to the NBI</strong> (BIRM 18.3.2) — data sent to FHWA must roll up into the standard SNBI elements. Know how your software does that roll-up and spot-check it.</p>`},
+{t:"Knowledge check 3",kc:[
+ {q:"Which of these is a Bridge Management Element (BME)?",o:["Elastomeric bearing (EN 310)","Reinforced concrete pier cap (EN 234)","Strip seal expansion joint (EN 300)","Metal bridge railing (EN 330)"],a:2,e:"BMEs are joints, wearing surfaces and protective systems. Bearings, railings and pier caps are National Bridge Elements. (Section 1.5, BIRM 3.3.3)"},
+ {q:"A deck has widespread fine map cracking only, rated 6, with 90% of its area in CS2. A reviewer asks for a 5 'to match.' What is correct?",o:["Change the rating to 5 so the systems agree","Move the deck quantity to CS1 so it matches the 6","Keep both — each is assigned on its own terms; document the reasoning","Average the two systems into a single code"],a:2,e:"Component ratings and condition states answer different questions. They should be consistent, but neither is derived from the other; forcing them to match is a common error. (Section 1.4)"}]},
+{t:"Summary",h:`<span class="kicker">Lesson 1 summary</span><h2>Key takeaways</h2><ul class="check">
+<li>A single 0–9 rating tells you condition, not what to fix or how much. Element data adds severity (condition state) and extent (quantity).</li>
+<li>23 U.S.C. 144 and 23 CFR 650.315 require element data for NHS bridges, collected per the MBEI (2019) and reported per the SNBI, both incorporated by 23 CFR 650.317.</li>
+<li>Reporting is required for NHS bridges and optional for others; many states collect it everywhere.</li>
+<li>The SNBI transition ends with a complete, verified dataset on March 15, 2028.</li>
+<li>Component ratings (Table 20) and condition states are assigned independently and should be consistent — never converted.</li>
+<li>NBEs are fixed nationally, BMEs may be modified, and ADEs never go to the NBI.</li></ul>
+<div id="sumBox"></div>`}
+];
+const KEY="spanpdh.bi201.l1",REQ_MIN=25; // planned seat time for this lesson (minutes)
+let st=JSON.parse(localStorage.getItem(KEY)||"null")||{i:0,done:[],ans:{},seat:0};
+if(location.search.includes("reset")){st={i:0,done:[],ans:{},seat:0};}
+const $=id=>document.getElementById(id),N=S.length,save=()=>localStorage.setItem(KEY,JSON.stringify(st));
+const isDone=i=>st.done.includes(i),allDone=()=>st.done.length>=N;
+const kcOk=i=>S[i].kc.every((q,j)=>st.ans[i+"-"+j]!==undefined);
+const maxReach=()=>{let m=0;while(m<N-1&&isDone(m))m++;return m;};
+function fmt(s){s=Math.floor(s);return Math.floor(s/3600)+":"+String(Math.floor(s/60)%60).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function render(){
+ const i=st.i,s=S[i];let h=s.h||"";
+ if(s.kc){h=`<span class="kicker">Knowledge check</span><h2>Check your understanding</h2><p style="color:var(--muted)">Answer ${s.kc.length>1?"both questions":"the question"} to continue. Feedback appears right away.</p>`+s.kc.map((q,j)=>{const k=i+"-"+j,a=st.ans[k];
+  return `<div class="q"><strong>${j+1}. ${q.q}</strong>`+q.o.map((o,n)=>{let c="";if(a!==undefined){if(n===q.a)c="right";else if(n===a)c="wrong";}
+  return `<label class="${c}"><input type="radio" name="q${k}" value="${n}" ${a===n?"checked":""} ${a!==undefined?"disabled":""}>${String.fromCharCode(65+n)}) ${o}</label>`}).join("")+
+  (a!==undefined?`<div class="fb show ${a===q.a?"ok":"no"}"><strong>${a===q.a?"✓ Correct.":"✗ Not quite. The answer is "+String.fromCharCode(65+q.a)+"."}</strong> ${q.e}</div>`:"")+`</div>`}).join("");}
+ $("card").innerHTML=h;
+ if(s.kc)$("card").querySelectorAll("input").forEach(r=>r.onchange=e=>{const[_,k]=e.target.name.split("q");st.ans[k]=+e.target.value;if(kcOk(i)&&!isDone(i))st.done.push(i);save();render();});
+ else if(!isDone(i)){st.done.push(i);save();}
+ if(i===N-1){const ok=allDone();$("sumBox").innerHTML=ok?`<div class="result" style="margin-top:14px"><strong>Lesson complete.</strong> Seat time recorded: <b>${fmt(st.seat)}</b>.<br><a class="btn btn-p" style="margin-top:10px" href="quiz.html">Take the final quiz ›</a></div>`:`<div class="note" style="margin-top:14px">🔒 Complete every screen to unlock the final quiz.</div>`;}
+ $("count").textContent=`Screen ${i+1} of ${N}`;$("back").disabled=i===0;
+ const blocked=s.kc&&!kcOk(i);$("next").disabled=blocked||i===N-1;$("next").textContent=i===N-1?"End":"Next ›";
+ $("lock").textContent=blocked?"Answer the knowledge check to continue.":"";
+ $("prog").style.width=(st.done.length/N*100)+"%";$("doneCt").textContent=st.done.length;$("totCt").textContent=N;
+ const mr=maxReach();
+ $("toc").innerHTML=S.map((x,n)=>`<li class="${isDone(n)?"done":""} ${x.kc?"kc":""}"><button data-n="${n}" class="${n===i?"cur":""} ${isDone(n)?"done":""}" ${n>mr&&!isDone(n)?"disabled":""}><span class="ck">${isDone(n)?"✓":""}</span><span class="lab">${n+1}. ${x.t}</span></button></li>`).join("");
+ $("toc").querySelectorAll("button").forEach(b=>b.onclick=()=>{st.i=+b.dataset.n;save();render();side(false);scrollTo(0,0);});
+ const q=$("quizBtn");if(allDone()){q.textContent="Final quiz ›";q.className="btn btn-p quiz";q.removeAttribute("aria-disabled");q.onclick=null;}
+ else{q.textContent="🔒 Final quiz";q.className="btn btn-s quiz";q.setAttribute("aria-disabled","true");q.onclick=e=>{e.preventDefault();alert("Complete all "+N+" screens to unlock the final quiz.");};}
+}
+function side(o){$("side").classList.toggle("open",o);$("shade").classList.toggle("open",o);$("tocBtn").setAttribute("aria-expanded",o);}
+$("tocBtn").onclick=()=>side(true);$("sideX").onclick=$("shade").onclick=()=>side(false);
+$("back").onclick=()=>{if(st.i>0){st.i--;save();render();scrollTo(0,0);}};
+$("next").onclick=()=>{if(st.i<N-1){st.i++;save();render();scrollTo(0,0);}};
+// Seat time: counts only while the tab is visible and the learner was active in the last 5 minutes.
+let last=Date.now();["mousemove","keydown","scroll","touchstart","click"].forEach(ev=>addEventListener(ev,()=>last=Date.now(),{passive:true}));
+setInterval(()=>{if(document.visibilityState==="visible"&&Date.now()-last<300000){st.seat++;if(st.seat%5===0)save();}$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";},1000);
+$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";render();
+</script></body></html>
