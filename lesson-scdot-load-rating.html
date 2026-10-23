@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Lesson 1 · SCDOT LRGD · SpanPDH</title><link rel="stylesheet" href="style.css"><script src="brand.js"></script>
+<style>
+body{display:flex;flex-direction:column;min-height:100vh}
+.lp-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:58px;z-index:4}
+.lp-bar .wrap{display:flex;align-items:center;gap:10px;height:50px}
+.lp-toc-btn{background:#fff;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-weight:700;color:var(--navy);cursor:pointer;font-size:.9rem}
+.lp-title{flex:1;min-width:0;font-weight:700;color:var(--navy);font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-seat{font-size:.78rem;color:var(--muted);text-align:right;line-height:1.25}.lp-seat b{color:var(--navy);font-variant-numeric:tabular-nums}
+.lp-prog{height:5px;background:#e3e9ef}.lp-prog i{display:block;height:100%;background:var(--orange);width:0;transition:width .3s}
+.lp{flex:1;display:grid;grid-template-columns:1fr;max-width:1180px;width:100%;margin:0 auto}
+.lp-side{position:fixed;top:0;left:0;bottom:0;width:86%;max-width:330px;background:#fff;z-index:20;transform:translateX(-102%);transition:transform .25s;overflow-y:auto;box-shadow:4px 0 24px rgba(0,0,0,.2)}
+.lp-side.open{transform:none}.lp-shade{position:fixed;inset:0;background:rgba(15,42,67,.45);z-index:19;display:none}.lp-shade.open{display:block}
+.lp-side h3{padding:16px 16px 4px;margin:0;font-size:.95rem}.lp-side .sub{padding:0 16px 10px;font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.lp-side .x{float:right;background:none;border:0;font-size:1.3rem;cursor:pointer;color:var(--muted);margin:-4px -4px 0 0}
+.lp-side ol{list-style:none;margin:0;padding:6px 0}
+.lp-side li button{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;padding:9px 16px;font:inherit;font-size:.9rem;color:var(--ink);cursor:pointer;border-left:4px solid transparent}
+.lp-side li button:disabled{color:#a3afba;cursor:not-allowed}
+.lp-side li button.cur{background:#eef4f9;border-left-color:var(--orange);font-weight:700}
+.lp-side .ck{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid #b8c4cf;display:grid;place-items:center;font-size:.72rem;font-weight:800;color:#fff;margin-top:1px}
+.lp-side .done .ck{background:var(--ok);border-color:var(--ok)}
+.lp-side .quiz{margin:8px 16px 18px;display:block}
+.lp-main{padding:20px 18px 30px;min-width:0}
+.lp-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;max-width:760px}
+.lp-card h2{margin-top:.1em}.lp-card .kicker{display:block;margin-bottom:4px}
+.lp-card blockquote{margin:14px 0;background:#f2f6fa;border-left:4px solid var(--steel);padding:10px 14px;border-radius:6px}
+.lp-card table{font-size:.84rem}.lp-card th{position:static}
+.fb{color:var(--ink);font-weight:400;margin-top:10px;padding:12px 14px;border-radius:8px;font-size:.93rem;display:none}.fb.show{display:block}
+.fb.ok{background:#eaf6ef;border:1px solid #b7dcc6}.fb.no{background:#fbecea;border:1px solid #efc2bd}
+.q label input{margin-right:8px}.q .chk{margin-top:8px}
+.lp-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:760px;margin-top:16px}
+.lp-count{font-size:.88rem;color:var(--muted);font-weight:700}
+.lp-nav .btn{padding:11px 16px;min-width:96px}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.lock{font-size:.85rem;color:var(--muted);margin-top:6px}
+@media(min-width:900px){
+ .lp{grid-template-columns:300px 1fr}.lp-side{position:sticky;top:113px;height:calc(100vh - 113px);transform:none;box-shadow:none;border-right:1px solid var(--line);width:auto;max-width:none;z-index:1}
+ .lp-side .x,.lp-toc-btn,.lp-shade{display:none!important}.lp-main{padding:28px 34px}.lp-card{padding:28px 32px}}
+</style></head><body>
+<div class="ribbon">Design mockup — PRELIMINARY draft lesson player. Progress stored in this browser only. Do not push Pages until Michael asks.</div>
+<header class="top"><div class="wrap"><a class="logo" href="index.html"><svg width="30" height="22" viewBox="0 0 30 22"><path d="M1 20h28M3 20V12M27 20V12M1 12h28M3 12 9 4h12l6 8M9 4l6 8 6-8M9 12V4M21 12V4" stroke="#e07a1f" stroke-width="2" fill="none"/></svg><span class="brand">SpanPDH</span></a>
+<nav><a href="niche-inspection.html" class="hide-m">Courses</a><a href="states.html" class="hide-m">State rules</a><a href="index.html#pricing">Pricing</a><a href="#" class="hide-m">Sign in</a></nav></div></header>
+<div class="lp-bar"><div class="wrap"><button class="lp-toc-btn" id="tocBtn" aria-controls="side" aria-expanded="false">☰ Screens</button>
+<div class="lp-title">SC-LR-LRGD · Lesson 1: Purpose, PE quals, triggers (draft)</div>
+<div class="lp-seat">Seat time<br><b id="seat">0:00:00</b></div></div><div class="lp-prog"><i id="prog"></i></div></div>
+<div class="lp-shade" id="shade"></div>
+<div class="lp">
+<aside class="lp-side" id="side" aria-label="Lesson screens"><button class="x" id="sideX" aria-label="Close">✕</button><h3>Lesson 1 screens</h3><div class="sub"><span id="doneCt">0</span> of <span id="totCt">0</span> complete · <a href="course-scdot-load-rating.html">Course home</a></div>
+<ol id="toc"></ol><a class="btn btn-s quiz" id="quizBtn" href="quiz-scdot-load-rating.html">🔒 Sample quiz</a></aside>
+<main class="lp-main"><div class="note" style="max-width:760px;margin-bottom:12px"><strong>PRELIMINARY.</strong> Sample subset of Lesson 1 screens for mockup. Full course drafts live under <code>/workspace/pdh-business/courses/</code>.</div>
+<div class="lp-card" id="card"></div>
+<div class="lp-nav"><button class="btn btn-s" id="back">‹ Back</button><span class="lp-count" id="count"></span><button class="btn btn-p" id="next">Next ›</button></div>
+<div class="lock" id="lock"></div></main></div>
+<script>
+
+const S=[
+{t:"Welcome & credit",h:`<span class="kicker">Lesson 1 of 4 · PRELIMINARY</span><h2>LRGD purpose, scope, PE quals, TN rule</h2>
+<p>This SpanPDH course covers the <strong>SCDOT Load Rating Guidance Document (LRGD)</strong>, Issue Date 2019 (August 2019 text), as SCDOT’s agency layer on the AASHTO <em>Manual for Bridge Evaluation</em> (MBE).</p>
+<p><strong>Credit:</strong> <strong>4 PDH</strong> total. PE / NICET-friendly <strong>supplemental</strong> technical PDH — <strong>not</strong> FHWA/NBIS refresher credit unless a DOT adopts the course.</p>
+<p class="note"><strong>Technical Notes:</strong> Interim updates are not in the 2019 PDF. Refer to posted Technical Notes on the SCDOT Load Rating Guidance page. This course does <strong>not</strong> invent TN body text. Statements that may be superseded are marked <strong>[CHECK — verify current Technical Note]</strong>.</p>`},
+{t:"Learning objectives",h:`<span class="kicker">Lesson 1</span><h2>After this lesson you will be able to</h2><ul class="check">
+<li>Restate the purpose and scope of the SCDOT LRGD and how it relates to the MBE and NBIS.</li>
+<li>Define Inventory Level / Inventory Rating, Operating Level / Operating Rating, Rating Factor, and Controlling Component using LRGD §1.3.1.</li>
+<li>Apply the SC PE / <strong>EOR ≠ QC Engineer</strong> rule (LRGD §3.2; BIGD §3.1.7).</li>
+<li>Decide when a new load rating is required for reconstruction and when an inspection finding triggers assessment for re-rating (LRGD §4.3).</li>
+<li>Describe the inspection-program handoff (BIGD §§3.1.7, 4.11, 7.3.1) without turning this into an inspection course.</li></ul>`},
+{t:"Why LRGD exists",h:`<span class="kicker">Disclaimer · §§1.1–1.2</span><h2>Why an SCDOT guidance document exists</h2>
+<p>The LRGD is published to provide information and guidance to bridge load raters in South Carolina, to secure uniformity of practice in compliance with the <strong>NBIS</strong> and the AASHTO <strong>MBE</strong>. It is <strong>not</strong> a complete guide in all areas of bridge rating and is <strong>not</strong> a substitute for engineering judgment.</p>
+<p><strong>Purpose (§1.1):</strong> define SCDOT policies and procedures for load rating and posting; provide uniformity; ensure bridges are load rated as to safe load carrying capacity; outline required documentation.</p>
+<p><strong>Scope (§1.2):</strong> requirements apply to SCDOT bridge staff <strong>and</strong> consultants performing load rating and posting for SCDOT.</p>
+<blockquote><strong>Operational principle:</strong> MBE supplies the national framework; LRGD states how SCDOT applies it. When LRGD is silent, follow the current MBE <strong>as modified by</strong> this Guidance Document (LRGD §4.1).</blockquote>`},
+{t:"Key definitions",h:`<span class="kicker">§1.3.1</span><h2>Definitions PE raters use daily</h2>
+<div class="tbl"><table><tr><th>Term</th><th>LRGD meaning (summary)</th></tr>
+<tr><td><strong>Inventory Rating</strong></td><td>Live load that can safely utilize the existing structure for an <strong>indefinite</strong> period.</td></tr>
+<tr><td><strong>Operating Rating (ASR/LFR)</strong></td><td>Maximum permissible live load; unlimited vehicles at Operating Level <strong>may shorten</strong> bridge life.</td></tr>
+<tr><td><strong>Rating Factor</strong></td><td>Ratio of available capacity in excess of dead load to live-load demand.</td></tr>
+<tr><td><strong>Controlling Component</strong></td><td>Component with the least live-load carrying capacity.</td></tr>
+<tr><td><strong>LRSF</strong></td><td>Load Rating Summary Form — sealed summary deliverable (Lesson 3).</td></tr>
+</table></div>`},
+{t:"Tech Notes gate",h:`<span class="kicker">§1.6</span><h2>Revisions and the Technical Notes gate</h2>
+<p>LRGD §1.6: revisions may follow SCDOT, FHWA, or AASHTO changes. Approved revisions show a margin line.</p>
+<blockquote><strong>Critical practice note:</strong> Interim updates are <strong>not</strong> included in this document. Refer to posted Technical Notes for text, images, and appendices that may have been updated.</blockquote>
+<p><strong>Course rule:</strong> the 2019 LRGD text is the baseline for graded content. Where software versions, forms, or procedures are maintained by Technical Notes (TN01–TN16 listed on the SCDOT page), treat the 2019 statement as <strong>[CHECK — verify current Technical Note]</strong> before sealing a real rating. Do <strong>not</strong> invent TN body text.</p>`},
+{t:"Knowledge check 1",kc:[
+ {q:"The LRGD is best described as:",o:["A complete substitute for the MBE","SCDOT policy/procedure guidance for rating and posting, used with the MBE and engineering judgment","An FHWA regulation that replaces NBIS"],a:1,e:"LRGD Disclaimer; §§1.1–1.2 — guidance for uniformity under NBIS + MBE; not a substitute for judgment."},
+ {q:"If a procedure in the 2019 LRGD conflicts with a posted Technical Note, the PE should:",o:["Ignore the Technical Note","Verify the current Technical Note on the SCDOT Load Rating Guidance page before sealing","Always use the 2019 PDF only"],a:1,e:"LRGD §1.6 — interim updates are not in the PDF; refer to posted Technical Notes."}
+]},
+{t:"PE quals & re-rate triggers",h:`<span class="kicker">§3.2 · §4.3</span><h2>PE qualifications and when to re-rate</h2>
+<p><strong>LRGD §3.2</strong> (also BIGD §3.1.7): ratings by / under supervision of an SC-licensed PE; certified by the PE (EOR). The EOR <strong>shall not be the QC Engineer</strong>. QC and QA Engineers shall be independent licensed PEs.</p>
+<p><strong>New rating required (§4.3 item 5)</strong> when reconstruction changes roadway width, load-carrying capacity, structural or geometric configuration — e.g. deck overlays that increase dead load, deck/stringer/superstructure replacement, widening.</p>
+<p><strong>Inspection-driven (§4.3 item 6):</strong> assess for re-rating when substantial section loss/damage, NBI condition drops to 4 or 3, 2+ point drops (except remaining “Good”), increased dead load, or BITL/Program Manager request. New ratings required unless current rating is shown adequate by <strong>documented engineering judgment</strong>.</p>
+<blockquote><strong>BIGD handoff:</strong> §4.11 — ratings performed <strong>in accordance with the LRGD</strong>. §7.3.1 — BITL requests rating no later than <strong>5 calendar days</strong> from discovery during desk review.</blockquote>`},
+{t:"Summary",h:`<span class="kicker">Lesson 1 summary · PRELIMINARY</span><h2>Key takeaways</h2><ul class="check">
+<li>LRGD = SCDOT uniformity layer on NBIS + MBE; judgment still required.</li>
+<li>Inventory vs Operating definitions differ slightly in ASR/LFR vs LRFR wording — use §1.3 carefully.</li>
+<li>EOR ≠ QC Engineer (§3.2) — lock that before Lesson 3 QC detail.</li>
+<li>New/reconstructed bridges need ratings that match <strong>current</strong> configuration; inspection findings trigger <strong>assessment</strong> and often a new rating.</li>
+<li>Inspectors request; raters execute per LRGD; Technical Notes may update the 2019 text — verify before seal.</li></ul>
+<p>Next: Lesson 2 — methods (LRFR first per §6.9.3), live-load suites, and factors.</p>
+<div id="sumBox"></div>`}
+];
+
+const KEY="spanpdh.sclrgd.l1",REQ_MIN=45,QUIZ="quiz-scdot-load-rating.html";
+let st=JSON.parse(localStorage.getItem(KEY)||"null")||{i:0,done:[],ans:{},seat:0};
+if(location.search.includes("reset")){st={i:0,done:[],ans:{},seat:0};}
+
+const $=id=>document.getElementById(id),N=S.length,save=()=>localStorage.setItem(KEY,JSON.stringify(st));
+const isDone=i=>st.done.includes(i),allDone=()=>st.done.length>=N;
+const kcOk=i=>S[i].kc.every((q,j)=>st.ans[i+"-"+j]!==undefined);
+const maxReach=()=>{let m=0;while(m<N-1&&isDone(m))m++;return m;};
+function fmt(s){s=Math.floor(s);return Math.floor(s/3600)+":"+String(Math.floor(s/60)%60).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function render(){
+ const i=st.i,s=S[i];let h=s.h||"";
+ if(s.kc){h=`<span class="kicker">Knowledge check</span><h2>Check your understanding</h2><p style="color:var(--muted)">Answer ${s.kc.length>1?"both questions":"the question"} to continue. Feedback appears right away.</p>`+s.kc.map((q,j)=>{const k=i+"-"+j,a=st.ans[k];
+  return `<div class="q"><strong>${j+1}. ${q.q}</strong>`+q.o.map((o,n)=>{let c="";if(a!==undefined){if(n===q.a)c="right";else if(n===a)c="wrong";}
+  return `<label class="${c}"><input type="radio" name="q${k}" value="${n}" ${a===n?"checked":""} ${a!==undefined?"disabled":""}>${String.fromCharCode(65+n)}) ${o}</label>`}).join("")+
+  (a!==undefined?`<div class="fb show ${a===q.a?"ok":"no"}"><strong>${a===q.a?"✓ Correct.":"✗ Not quite. The answer is "+String.fromCharCode(65+q.a)+"."}</strong> ${q.e}</div>`:"")+`</div>`}).join("");}
+ $("card").innerHTML=h;
+ if(s.kc)$("card").querySelectorAll("input").forEach(r=>r.onchange=e=>{const[_,k]=e.target.name.split("q");st.ans[k]=+e.target.value;if(kcOk(i)&&!isDone(i))st.done.push(i);save();render();});
+ else if(!isDone(i)){st.done.push(i);save();}
+ if(i===N-1){const ok=allDone();$("sumBox").innerHTML=ok?`<div class="result" style="margin-top:14px"><strong>Lesson sample complete.</strong> Seat time recorded: <b>${fmt(st.seat)}</b>.<br><a class="btn btn-p" style="margin-top:10px" href="${QUIZ}">Sample quiz ›</a></div>`:`<div class="note" style="margin-top:14px">🔒 Complete every screen to unlock the sample quiz link.</div>`;}
+ $("count").textContent=`Screen ${i+1} of ${N}`;$("back").disabled=i===0;
+ const blocked=s.kc&&!kcOk(i);$("next").disabled=blocked||i===N-1;$("next").textContent=i===N-1?"End":"Next ›";
+ $("lock").textContent=blocked?"Answer the knowledge check to continue.":"";
+ $("prog").style.width=(st.done.length/N*100)+"%";$("doneCt").textContent=st.done.length;$("totCt").textContent=N;
+ const mr=maxReach();
+ $("toc").innerHTML=S.map((x,n)=>`<li class="${isDone(n)?"done":""} ${x.kc?"kc":""}"><button data-n="${n}" class="${n===i?"cur":""} ${isDone(n)?"done":""}" ${n>mr&&!isDone(n)?"disabled":""}><span class="ck">${isDone(n)?"✓":""}</span><span class="lab">${n+1}. ${x.t}</span></button></li>`).join("");
+ $("toc").querySelectorAll("button").forEach(b=>b.onclick=()=>{st.i=+b.dataset.n;save();render();side(false);scrollTo(0,0);});
+ const q=$("quizBtn");if(allDone()){q.textContent="Sample quiz ›";q.className="btn btn-p quiz";q.removeAttribute("aria-disabled");q.onclick=null;}
+ else{q.textContent="🔒 Sample quiz";q.className="btn btn-s quiz";q.setAttribute("aria-disabled","true");q.onclick=e=>{e.preventDefault();alert("Complete all "+N+" screens to unlock the sample quiz.");};}
+}
+function side(o){$("side").classList.toggle("open",o);$("shade").classList.toggle("open",o);$("tocBtn").setAttribute("aria-expanded",o);}
+$("tocBtn").onclick=()=>side(true);$("sideX").onclick=$("shade").onclick=()=>side(false);
+$("back").onclick=()=>{if(st.i>0){st.i--;save();render();scrollTo(0,0);}};
+$("next").onclick=()=>{if(st.i<N-1){st.i++;save();render();scrollTo(0,0);}};
+let last=Date.now();["mousemove","keydown","scroll","touchstart","click"].forEach(ev=>addEventListener(ev,()=>last=Date.now(),{passive:true}));
+setInterval(()=>{if(document.visibilityState==="visible"&&Date.now()-last<300000){st.seat++;if(st.seat%5===0)save();}$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";},1000);
+$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";render();
+
+</script></body></html>
