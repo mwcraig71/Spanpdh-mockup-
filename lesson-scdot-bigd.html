@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Lesson 1 · SCDOT BIGD · SpanPDH</title><link rel="stylesheet" href="style.css"><script src="brand.js"></script>
+<style>
+body{display:flex;flex-direction:column;min-height:100vh}
+.lp-bar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:58px;z-index:4}
+.lp-bar .wrap{display:flex;align-items:center;gap:10px;height:50px}
+.lp-toc-btn{background:#fff;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-weight:700;color:var(--navy);cursor:pointer;font-size:.9rem}
+.lp-title{flex:1;min-width:0;font-weight:700;color:var(--navy);font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-seat{font-size:.78rem;color:var(--muted);text-align:right;line-height:1.25}.lp-seat b{color:var(--navy);font-variant-numeric:tabular-nums}
+.lp-prog{height:5px;background:#e3e9ef}.lp-prog i{display:block;height:100%;background:var(--orange);width:0;transition:width .3s}
+.lp{flex:1;display:grid;grid-template-columns:1fr;max-width:1180px;width:100%;margin:0 auto}
+.lp-side{position:fixed;top:0;left:0;bottom:0;width:86%;max-width:330px;background:#fff;z-index:20;transform:translateX(-102%);transition:transform .25s;overflow-y:auto;box-shadow:4px 0 24px rgba(0,0,0,.2)}
+.lp-side.open{transform:none}.lp-shade{position:fixed;inset:0;background:rgba(15,42,67,.45);z-index:19;display:none}.lp-shade.open{display:block}
+.lp-side h3{padding:16px 16px 4px;margin:0;font-size:.95rem}.lp-side .sub{padding:0 16px 10px;font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.lp-side .x{float:right;background:none;border:0;font-size:1.3rem;cursor:pointer;color:var(--muted);margin:-4px -4px 0 0}
+.lp-side ol{list-style:none;margin:0;padding:6px 0}
+.lp-side li button{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;padding:9px 16px;font:inherit;font-size:.9rem;color:var(--ink);cursor:pointer;border-left:4px solid transparent}
+.lp-side li button:disabled{color:#a3afba;cursor:not-allowed}
+.lp-side li button.cur{background:#eef4f9;border-left-color:var(--orange);font-weight:700}
+.lp-side .ck{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid #b8c4cf;display:grid;place-items:center;font-size:.72rem;font-weight:800;color:#fff;margin-top:1px}
+.lp-side .done .ck{background:var(--ok);border-color:var(--ok)}
+.lp-side .quiz{margin:8px 16px 18px;display:block}
+.lp-main{padding:20px 18px 30px;min-width:0}
+.lp-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;max-width:760px}
+.lp-card h2{margin-top:.1em}.lp-card .kicker{display:block;margin-bottom:4px}
+.lp-card blockquote{margin:14px 0;background:#f2f6fa;border-left:4px solid var(--steel);padding:10px 14px;border-radius:6px}
+.lp-card table{font-size:.84rem}.lp-card th{position:static}
+.fb{color:var(--ink);font-weight:400;margin-top:10px;padding:12px 14px;border-radius:8px;font-size:.93rem;display:none}.fb.show{display:block}
+.fb.ok{background:#eaf6ef;border:1px solid #b7dcc6}.fb.no{background:#fbecea;border:1px solid #efc2bd}
+.q label input{margin-right:8px}.q .chk{margin-top:8px}
+.lp-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:760px;margin-top:16px}
+.lp-count{font-size:.88rem;color:var(--muted);font-weight:700}
+.lp-nav .btn{padding:11px 16px;min-width:96px}.btn[disabled]{opacity:.45;cursor:not-allowed}
+.lock{font-size:.85rem;color:var(--muted);margin-top:6px}
+@media(min-width:900px){
+ .lp{grid-template-columns:300px 1fr}.lp-side{position:sticky;top:113px;height:calc(100vh - 113px);transform:none;box-shadow:none;border-right:1px solid var(--line);width:auto;max-width:none;z-index:1}
+ .lp-side .x,.lp-toc-btn,.lp-shade{display:none!important}.lp-main{padding:28px 34px}.lp-card{padding:28px 32px}}
+</style></head><body>
+<div class="ribbon">Design mockup — PRELIMINARY draft lesson player. Progress stored in this browser only. Do not push Pages until Michael asks.</div>
+<header class="top"><div class="wrap"><a class="logo" href="index.html"><svg width="30" height="22" viewBox="0 0 30 22"><path d="M1 20h28M3 20V12M27 20V12M1 12h28M3 12 9 4h12l6 8M9 4l6 8 6-8M9 12V4M21 12V4" stroke="#e07a1f" stroke-width="2" fill="none"/></svg><span class="brand">SpanPDH</span></a>
+<nav><a href="niche-inspection.html" class="hide-m">Courses</a><a href="states.html" class="hide-m">State rules</a><a href="index.html#pricing">Pricing</a><a href="#" class="hide-m">Sign in</a></nav></div></header>
+<div class="lp-bar"><div class="wrap"><button class="lp-toc-btn" id="tocBtn" aria-controls="side" aria-expanded="false">☰ Screens</button>
+<div class="lp-title">SC-BI-BIGD · Lesson 1: Purpose, definitions, roles (draft)</div>
+<div class="lp-seat">Seat time<br><b id="seat">0:00:00</b></div></div><div class="lp-prog"><i id="prog"></i></div></div>
+<div class="lp-shade" id="shade"></div>
+<div class="lp">
+<aside class="lp-side" id="side" aria-label="Lesson screens"><button class="x" id="sideX" aria-label="Close">✕</button><h3>Lesson 1 screens</h3><div class="sub"><span id="doneCt">0</span> of <span id="totCt">0</span> complete · <a href="course-scdot-bigd.html">Course home</a></div>
+<ol id="toc"></ol><a class="btn btn-s quiz" id="quizBtn" href="quiz-scdot-bigd.html">🔒 Sample quiz</a></aside>
+<main class="lp-main"><div class="note" style="max-width:760px;margin-bottom:12px"><strong>PRELIMINARY.</strong> Sample subset of Lesson 1 screens for mockup. Full course drafts live under <code>/workspace/pdh-business/courses/</code>.</div>
+<div class="lp-card" id="card"></div>
+<div class="lp-nav"><button class="btn btn-s" id="back">‹ Back</button><span class="lp-count" id="count"></span><button class="btn btn-p" id="next">Next ›</button></div>
+<div class="lock" id="lock"></div></main></div>
+<script>
+
+const S=[
+{t:"Welcome & credit",h:`<span class="kicker">Lesson 1 of 4 · PRELIMINARY</span><h2>Purpose, definitions, organization &amp; qualifications</h2>
+<p>This SpanPDH course walks the <strong>May/2026 SCDOT Bridge Inspection Guidance Document (BIGD)</strong> — the Bridge Management Office’s written policies for inspecting bridges in South Carolina under the NBIS.</p>
+<p><strong>Credit:</strong> <strong>4 PDH</strong> total. PE / NICET-friendly <strong>supplemental</strong> technical PDH.</p>
+<p><strong>Not this course:</strong> FHWA/NBIS refresher credit (unless a DOT adopts SpanPDH for that purpose). Full Ch 6 field methods. Full load-rating procedures in the LRGD — we only cover BIGD triggers that send you to a rating.</p>
+<p class="note"><strong>Appendices A/B/D</strong> are on the BMO website and are <strong>not</strong> in the source PDF used for this draft. This course does <strong>not</strong> invent appendix content.</p>`},
+{t:"Learning objectives",h:`<span class="kicker">Lesson 1</span><h2>After this lesson you will be able to</h2><ul class="check">
+<li>State the BIGD purpose and disclaimer limits.</li>
+<li>Classify a structure as NBIS bridge vs culvert (not bridge) using §1.3.1 / Figure 2 logic.</li>
+<li>Name HQ, district, and team roles (BIPM, LRE, BMQE, DBIS, BITL) and who owns Critical Finding tracking.</li>
+<li>Apply Table 2 BITL qualifications and the SC PE rule for load ratings (§3.1.7).</li>
+<li>State the Consultant PM <strong>BITL rotation</strong> rule (§4.1.1).</li></ul>
+<p class="note">Work through each screen in order. Knowledge checks must be answered before you move on.</p>`},
+{t:"Purpose & disclaimer",h:`<span class="kicker">1.1–1.2</span><h2>Purpose and disclaimer</h2>
+<p><strong>Purpose:</strong> Provide guidance for inspecting bridges in South Carolina; organize SCDOT policies and post-inspection recommendations; promote uniformity and best practices. Modifications require approval of the <strong>SCDOT Bridge Management Office (BMO)</strong> and <strong>FHWA</strong>.</p>
+<p><strong>Program goals (§1.2):</strong> assure safety of the traveling public; achieve and maintain NBIS compliance; identify deficiencies; provide accurate data for asset management.</p>
+<blockquote>The BIGD is published <strong>solely to provide information and guidance</strong>. It is <strong>not</strong> a complete guide in all areas of bridge inspection and is <strong>not</strong> a substitute for <strong>engineering judgment</strong>.</blockquote>
+<p>When the BIGD is silent or incomplete relative to an appendix on the BMO site, use judgment, document, and escalate through DBIS / BMO — do not invent policy and call it BIGD.</p>`},
+{t:"Bridge vs culvert",h:`<span class="kicker">§1.3.1</span><h2>What counts as a Bridge vs Culvert</h2>
+<p><strong>Bridge:</strong> Structure over a depression or obstruction; opening along the roadway centerline of <strong>more than 20 feet</strong> between under copings of abutments, spring lines of arches, or extreme ends of openings for multiple boxes.</p>
+<p><strong>Culvert:</strong> Designed hydraulically to use submergence for capacity; usually embankment-covered; <strong>shall only carry water</strong>. Floor vs no floor does not change the determination.</p>
+<p>A culvert is an NBIS <strong>bridge</strong> if hydraulic opening <strong>&gt; 20 ft</strong> along centerline, <strong>or</strong> a group of culverts with total length &gt; 20 ft <strong>and</strong> clear distance between openings <strong>&lt; half</strong> the smaller contiguous opening.</p>
+<blockquote><strong>Figure 2 (as described in BIGD):</strong> L &lt; 20 ft → culvert (not NBIS bridge). Else if S ≥ W/2 or S ≥ D/2 → culvert (not NBIS). Else → <strong>bridge</strong>.</blockquote>`},
+{t:"Definitions & CF",h:`<span class="kicker">§1.3.1</span><h2>Key definitions</h2>
+<div class="tbl"><table><tr><th>Term</th><th>BIGD (condensed)</th></tr>
+<tr><td><strong>Critical Finding</strong></td><td>Structural or safety-related deficiency that requires <strong>immediate action</strong> to ensure public safety.</td></tr>
+<tr><td><strong>NSTM</strong></td><td>Primary steel member in tension without redundancy whose failure may cause partial or total collapse.</td></tr>
+<tr><td><strong>Load Rating</strong></td><td>Analysis of safe vehicular live-load capacity using plans plus inspection measurements.</td></tr>
+<tr><td><strong>Quality Control</strong></td><td>Procedures to keep inspection and load rating quality at or above a specified level.</td></tr>
+<tr><td><strong>Quality Assurance</strong></td><td>Sampling and measures to assure QC adequacy for the <strong>program</strong>.</td></tr>
+</table></div>`},
+{t:"Knowledge check 1",kc:[
+ {q:"Who must approve modifications to the BIGD?",o:["BIPM alone","BMO and FHWA","DBIS and FHWA","District Bridge Engineer alone"],a:1,e:"Purpose statement: modifications require BMO and FHWA approval. (BIGD Purpose / §1.2)"},
+ {q:"A multi-barrel culvert has total length L = 24 ft along the roadway and clear spacing S less than half the smaller opening. Per BIGD, it is:",o:["Culvert only (not NBIS)","An NBIS bridge","Always a tunnel","Undersized bridge by definition"],a:1,e:"§1.3.1 grouping rule / Figure 2: L > 20 ft and S < half the smaller opening → NBIS bridge."}
+]},
+{t:"Roles & BITL rotation",h:`<span class="kicker">Ch 2 · §4.1.1</span><h2>Roles and BITL rotation</h2>
+<ul>
+<li><strong>BIPM</strong> — Manages statewide bridge inspection and load rating programs; NBIS compliance.</li>
+<li><strong>DBIS</strong> — Oversees BITLs; QC of reports; <strong>ultimately responsible for Critical Finding tracking</strong> on district bridges.</li>
+<li><strong>BITL</strong> — Plans and leads field inspections; <strong>signs the inspection report</strong> and owns its content.</li>
+<li><strong>BMQE</strong> — Inspection quality; QA of reports; coordinates on Critical Findings, closures, posting.</li>
+</ul>
+<blockquote><strong>§4.1.1 Team Leader Assignments:</strong> The Consultant PM <strong>shall not</strong> assign the same BITL to <strong>consecutive</strong> scheduled inspections of the <strong>same type</strong> (routine, underwater, NSTM, in-depth, service, or complex). Rotating BITLs improves program quality.</blockquote>
+<p class="note">Interval ownership (Lesson 2): BITL documents judgment; DBIS/Consultant PM schedule adherence; BMQE monitors (§4 / §4.18).</p>`},
+{t:"Summary",h:`<span class="kicker">Lesson 1 summary · PRELIMINARY</span><h2>Key takeaways</h2><ul class="check">
+<li>BIGD promotes uniformity under NBIS — not a substitute for engineering judgment.</li>
+<li>Bridge vs culvert uses the &gt;20 ft / multi-barrel spacing rules in §1.3.1.</li>
+<li>DBIS owns CF tracking; BITL signs the report; BIPM owns statewide program management.</li>
+<li>Consultant PM shall not assign the same BITL to consecutive same-type inspections (§4.1.1).</li>
+<li>Load ratings: by / under direct supervision of an SC-licensed PE (§3.1.7) — details in the LRGD companion course.</li></ul>
+<div id="sumBox"></div>`}
+];
+
+const KEY="spanpdh.scbigd.l1",REQ_MIN=50,QUIZ="quiz-scdot-bigd.html";
+let st=JSON.parse(localStorage.getItem(KEY)||"null")||{i:0,done:[],ans:{},seat:0};
+if(location.search.includes("reset")){st={i:0,done:[],ans:{},seat:0};}
+
+const $=id=>document.getElementById(id),N=S.length,save=()=>localStorage.setItem(KEY,JSON.stringify(st));
+const isDone=i=>st.done.includes(i),allDone=()=>st.done.length>=N;
+const kcOk=i=>S[i].kc.every((q,j)=>st.ans[i+"-"+j]!==undefined);
+const maxReach=()=>{let m=0;while(m<N-1&&isDone(m))m++;return m;};
+function fmt(s){s=Math.floor(s);return Math.floor(s/3600)+":"+String(Math.floor(s/60)%60).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function render(){
+ const i=st.i,s=S[i];let h=s.h||"";
+ if(s.kc){h=`<span class="kicker">Knowledge check</span><h2>Check your understanding</h2><p style="color:var(--muted)">Answer ${s.kc.length>1?"both questions":"the question"} to continue. Feedback appears right away.</p>`+s.kc.map((q,j)=>{const k=i+"-"+j,a=st.ans[k];
+  return `<div class="q"><strong>${j+1}. ${q.q}</strong>`+q.o.map((o,n)=>{let c="";if(a!==undefined){if(n===q.a)c="right";else if(n===a)c="wrong";}
+  return `<label class="${c}"><input type="radio" name="q${k}" value="${n}" ${a===n?"checked":""} ${a!==undefined?"disabled":""}>${String.fromCharCode(65+n)}) ${o}</label>`}).join("")+
+  (a!==undefined?`<div class="fb show ${a===q.a?"ok":"no"}"><strong>${a===q.a?"✓ Correct.":"✗ Not quite. The answer is "+String.fromCharCode(65+q.a)+"."}</strong> ${q.e}</div>`:"")+`</div>`}).join("");}
+ $("card").innerHTML=h;
+ if(s.kc)$("card").querySelectorAll("input").forEach(r=>r.onchange=e=>{const[_,k]=e.target.name.split("q");st.ans[k]=+e.target.value;if(kcOk(i)&&!isDone(i))st.done.push(i);save();render();});
+ else if(!isDone(i)){st.done.push(i);save();}
+ if(i===N-1){const ok=allDone();$("sumBox").innerHTML=ok?`<div class="result" style="margin-top:14px"><strong>Lesson sample complete.</strong> Seat time recorded: <b>${fmt(st.seat)}</b>.<br><a class="btn btn-p" style="margin-top:10px" href="${QUIZ}">Sample quiz ›</a></div>`:`<div class="note" style="margin-top:14px">🔒 Complete every screen to unlock the sample quiz link.</div>`;}
+ $("count").textContent=`Screen ${i+1} of ${N}`;$("back").disabled=i===0;
+ const blocked=s.kc&&!kcOk(i);$("next").disabled=blocked||i===N-1;$("next").textContent=i===N-1?"End":"Next ›";
+ $("lock").textContent=blocked?"Answer the knowledge check to continue.":"";
+ $("prog").style.width=(st.done.length/N*100)+"%";$("doneCt").textContent=st.done.length;$("totCt").textContent=N;
+ const mr=maxReach();
+ $("toc").innerHTML=S.map((x,n)=>`<li class="${isDone(n)?"done":""} ${x.kc?"kc":""}"><button data-n="${n}" class="${n===i?"cur":""} ${isDone(n)?"done":""}" ${n>mr&&!isDone(n)?"disabled":""}><span class="ck">${isDone(n)?"✓":""}</span><span class="lab">${n+1}. ${x.t}</span></button></li>`).join("");
+ $("toc").querySelectorAll("button").forEach(b=>b.onclick=()=>{st.i=+b.dataset.n;save();render();side(false);scrollTo(0,0);});
+ const q=$("quizBtn");if(allDone()){q.textContent="Sample quiz ›";q.className="btn btn-p quiz";q.removeAttribute("aria-disabled");q.onclick=null;}
+ else{q.textContent="🔒 Sample quiz";q.className="btn btn-s quiz";q.setAttribute("aria-disabled","true");q.onclick=e=>{e.preventDefault();alert("Complete all "+N+" screens to unlock the sample quiz.");};}
+}
+function side(o){$("side").classList.toggle("open",o);$("shade").classList.toggle("open",o);$("tocBtn").setAttribute("aria-expanded",o);}
+$("tocBtn").onclick=()=>side(true);$("sideX").onclick=$("shade").onclick=()=>side(false);
+$("back").onclick=()=>{if(st.i>0){st.i--;save();render();scrollTo(0,0);}};
+$("next").onclick=()=>{if(st.i<N-1){st.i++;save();render();scrollTo(0,0);}};
+let last=Date.now();["mousemove","keydown","scroll","touchstart","click"].forEach(ev=>addEventListener(ev,()=>last=Date.now(),{passive:true}));
+setInterval(()=>{if(document.visibilityState==="visible"&&Date.now()-last<300000){st.seat++;if(st.seat%5===0)save();}$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";},1000);
+$("seat").textContent=fmt(st.seat)+" / "+REQ_MIN+" min";render();
+
+</script></body></html>
